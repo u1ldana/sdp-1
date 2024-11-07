@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="source/styles/mycss.css">
+    <link rel="stylesheet" href="source/styles/bgvideo.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="source/files/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="source/files/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="source/files/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="source/files/favicon_io/site.webmanifest">
+    <title>FLORAL</title>
+    <style>
+        h2, h3, h4 {
+            color: #333;
+        }
+        .content {
+            padding: 60px 20px; 
+            text-align: center;
+        }
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav-link:hover {
+            color: #7a4343;
+        }
+        #profileData {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 600px;
+        }
+        button.btn.btn-primary, button.btn.btn-danger, button.btn.btn-success {
+            padding: 5px 5px; 
+            font-size: 14px; 
+            max-width: 500px;
+        }
+        #loginButton {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="source/images/flor.png" alt="..."></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="pricing.html">Sweet boutiques</a>
+                        <a class="nav-link" href="combos.html">Teddy bears</a>
+                        <a class="nav-link" href="aboutus.html">About us</a>
+                        <a class="nav-link active" href="profile.html">Profile</a>
+                        <a class="nav-link" href="basket.html"><img src="source/images/basket.png" alt="..." class="basket-icon"></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="content">
+            <h2>User Profile</h2>
+            <div id="profileData"></div>
+            <div id="editProfileForm" style="display: none;"> 
+                <input type="text" id="firstName" placeholder="Name" required>
+                <input type="text" id="lastName" placeholder="Surname" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <div>
+                    <button id="saveButton" class="btn btn-primary" style="margin-top: 20px;">Save</button>
+                    <div class="centered-logout">
+                        <button id="logoutButton" class="btn btn-danger" style="display: none; margin-top: 20px;">Exit</button>
+                    </div>
+                </div>
+            </div> 
+            <button id="loginButton" class="btn btn-success" style="display: none; margin-left: 500px;">Enter</button>
+        </div>
+
+        <script>
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const profileData = document.getElementById('profileData');
+            const logoutButton = document.getElementById('logoutButton');
+            const loginButton = document.getElementById('loginButton');
+            const editProfileForm = document.getElementById('editProfileForm');
+            const saveButton = document.getElementById('saveButton');
+
+//State Pattern:
+            if (currentUser) {
+                document.getElementById('firstName').value = currentUser.firstName;
+                document.getElementById('lastName').value = currentUser.lastName;
+                document.getElementById('email').value = currentUser.email;
+
+                profileData.innerHTML = `
+                    <h3>Your data:</h3>
+                    <p>Name: ${currentUser.firstName}</p>
+                    <p>Surname: ${currentUser.lastName}</p>
+                    <p>Email: ${currentUser.email}</p>
+                    <p>Role: ${currentUser.role}</p>
+                    <h4>Your orders:</h4>
+                    <p>Your orders will be here.</p>
+                `;
+
+                logoutButton.style.display = 'block'; 
+                loginButton.style.display = 'none'; 
+                editProfileForm.style.display = 'block'; 
+            } else {
+                profileData.innerHTML = '<p>Please log in.</p>';
+                loginButton.style.display = 'block'; 
+                editProfileForm.style.display = 'none'; 
+            }
+
+                saveButton.addEventListener('click', function() {              // Observer Pattern
+                const updatedUser = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    role: currentUser ? currentUser.role : 'Гость' 
+                };
+                localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                profileData.innerHTML = `
+                    <h3>Your data:</h3>
+                    <p>Name: ${updatedUser.firstName}</p>
+                    <p>Surname: ${updatedUser.lastName}</p>
+                    <p>Email: ${updatedUser.email}</p>
+                    <p>Role: ${updatedUser.role}</p>
+                    <h4>Your orders:</h4>
+                    <p>Your orders will be here.</p>
+                `;
+            });
+
+            logoutButton.addEventListener('click', function() {              // Observer Pattern
+                localStorage.removeItem('currentUser'); 
+                profileData.innerHTML = '<p>Please log in.</p>'; 
+                logoutButton.style.display = 'none'; 
+                loginButton.style.display = 'block'; 
+                document.getElementById('firstName').value = '';
+                document.getElementById('lastName').value = '';
+                document.getElementById('email').value = '';
+                editProfileForm.style.display = 'none';
+           
+                 window.location.href = 'index.html'; 
+                });
+
+        </script>
+
+        <footer>
+            <div class="footer">
+                <div class="text">
+                    <h4>Contacts</h4>
+                </div>
+                <div class="text">
+                    <h4>Address</h4>
+                    <p>📍 Astana, Mangilik el, C1</p>
+                </div>
+                <div class="text">
+                    <h4>Phone number</h4>
+                    <p>📞 8 775 664 53 57</p>
+                </div>
+                <div class="text">
+                    <h4>Instagram</h4>
+                    <p>📩 floral.kz</p>
+                </div>
+            </div>
+            
+            <div class="texts">
+                <p>Zhussupbekova Uldana</p>
+                <p>© All Rights Reserved 2024</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

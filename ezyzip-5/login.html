@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title> 
+    
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 1000%;
+            background-color: #f8f9fa;
+           
+            padding: 10px;
+            z-index: 1000;
+        }
+        .navbar-nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .nav-link:hover {
+            background-color: #e2e6ea;
+        }
+        .nav-link.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+     
+    </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+                <div class="navbar-nav">
+                        <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" href="login.html">login</a>
+                        <a class="nav-link" href="register.html">Register</a>
+                       </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="content">
+        <h2>Entrance</h2>
+        <form id="loginForm">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <label for="role">Role:</label>
+            <select id="role" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const user = JSON.parse(localStorage.getItem(email));
+            if (user && user.password === password) {
+/*Singleton*/ localStorage.setItem('currentUser', JSON.stringify(user));
+/*Strategy Pattern:*/  window.location.href = (user.role === 'admin') ? 'admin.html' : 'user.html';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>

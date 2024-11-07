@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+           
+            padding: 8px;
+            z-index: 1000;
+        }
+        .navbar-nav {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+        .nav-link:hover {
+            background-color: #e2e6ea;
+        }
+        .nav-link.active {
+            color: #007bff;
+            font-weight: bold;
+        }
+    
+     
+    </style>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 10;
+            padding: 60px;
+            
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}
+
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+                <div class="navbar-nav">
+                        <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="login.html">login</a>
+                        <a class="nav-link active" href="register.html">Register</a>
+                       </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="content">
+        <h2>Registration</h2>
+        <form id="registerForm">
+            <div>
+                <label for="firstName">Name</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div>
+                <label for="lastName">Surname</label>
+                <input type="text" id="lastName" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <div>
+                <label for="role">Role</label>
+                <select id="role" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+
+            const userData = {            /*Factory */
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                role: role 
+            };
+
+            localStorage.setItem(email, JSON.stringify(userData));   /*Singleton */
+
+            alert('Registration was successful!');
+            document.getElementById('registerForm').reset();
+        });
+    </script>
+</body>
+</html>

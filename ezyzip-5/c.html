@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+<body>
+    <script>
+        
+        const circle = document.createElement('div');
+        
+       
+        circle.style.width = '100px'; 
+        circle.style.height = '100px'; 
+        circle.style.backgroundColor = 'lightcoral'; 
+        circle.style.borderRadius = '50%'; 
+        circle.style.transition = 'all 0.3s'; 
+        circle.style.position = 'absolute'; 
+        circle.style.top = '50%'; 
+        circle.style.left = '50%'; 
+        circle.style.transform = 'translate(-50%, -50%)'; 
+
+       
+        document.body.appendChild(circle);
+
+        circle.addEventListener('mouseenter', () => {
+            circle.style.width = '150px';  
+            circle.style.height = '150px'; 
+        });
+
+        
+        circle.addEventListener('mouseleave', () => {
+            circle.style.width = '100px';  
+            circle.style.height = '100px'; 
+        });
+    </script>
+</body>
+</html>

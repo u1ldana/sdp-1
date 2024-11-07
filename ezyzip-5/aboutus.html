@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="source/styles/mycss.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="source/files/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="source/files/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="source/files/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="source/files/favicon_io/site.webmanifest">
+  <title>FLORAL</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="source/images/flor.png" alt=""></a>
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" href="pricing.html">Sweet boutiques</a>
+            <a class="nav-link" href="combos.html">Teddy bears</a>
+            <a class="nav-link active" href="aboutus.html">About us</a>
+             <a class="nav-link" href="basket.html"><img src="source/images/basket.png"  alt="..."  class="basket-icon"></a>
+             <a class="nav-link active" href="login.html " style="margin-left: 23cm;">login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <style>
+      .img {
+        height: 70vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .img img {
+         height: 89vh;
+         width: 100%;
+         position: absolute;
+         top: 0;
+         left: 0;
+         object-fit: cover;
+         z-index: 1;
+        }
+        .img-text {
+    position: absolute;
+    top: 50%;
+    right: 20px; 
+    transform: translateY(-50%); 
+  }
+        .img-text{
+          z-index: 2;
+          color: rgb(255, 255, 255);
+        }
+
+      .img-text h {
+        font-size: 250px; 
+        font-weight: bold; 
+        color: #ffffff; 
+      }
+    </style>
+    
+    <div class="img">
+      <img src="source/files/Дизайн без названия.jpg" type="img/jpg"></img>
+      <div class="img-text">
+        <h>FLORAL</h>
+        <p class="fs-1">Brand Nº1 among the flower business</p>
+
+        <style>
+          .img-text h {
+              font-size: 360px; 
+          }
+          
+          .img-text p.fs-1 {
+              font-size: 18px; 
+          }
+          
+          @media (max-width: 768px) {
+              .img-text h {
+                  font-size: 100px; 
+              }
+          
+              .img-text p.fs-1 {
+                  font-size: 14px; 
+              }
+          }
+          </style>
+    
+    
+      </head>
+      <body>
+      </div>
+    </div>
+
+    <br> <br> <br> <br> <br> <br> <br> 
+
+
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="about-section">
+            <h2>Our mission</h2>
+            <p>
+              We strive to bring joy through our bouquets, creating unique compositions for each client. Our <span class="highlight">mission</span> is to make the world brighter and more beautiful.       </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="about-section">
+            <h2>Our team</h2>
+            <p>
+              Our store employs professional florists who have <span class="highlight">extensive experience</span> and passion for their work. work. Each of us strives to create not just a bouquet, but a real.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="about-section">
+            <h2>Our services</h2>
+            <p>
+              We offer a wide range of services: from creating bouquets for weddings to <span class="highlight">decorating events</span>. We will help you make your holiday unforge.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .about-section {
+        background-color: #fff5f8; 
+        padding: 40px 20px;
+        margin-bottom: 30px; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    
+      .about-section h2 {
+        font-size: 36px; 
+        color: #d85a7f; 
+        font-family: 'Playfair Display', serif; 
+        margin-bottom: 20px;
+      }
+    
+      .about-section p {
+        font-size: 18px; 
+        color: #555;
+        line-height: 1.6;
+      }
+    
+      .about-section .highlight {
+        color: #d85a7f; 
+        font-weight: bold;
+      }
+    </style>
+
+    <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+      <div class="card" style="width: 18rem; margin: 50px;"> 
+        <img class="card-img-top" src="source/files/pi.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">Emilie</h2>
+          <p class="card-text">Chief Operating Officer.  Ensures that our operations run smoothly and efficiently.</p>
+        </div>
+      </div>
+    
+      <div class="card" style="width: 18rem; margin: 50px;"> 
+        <img class="card-img-top" src="source/files/pi2.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">John</h2>
+          <p class="card-text">CEO.The visionary behind our company, with over [3] years of experience.</p>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-lg-1">
+        </div>
+
+        <div class="col-lg-8 col-md-12">
+          <div class="row">
+
+            <div class="row">
+              <div class="col-lg-6 col-md-6">
+                <img src="source/images/IMG_2987.jpg" class="w-100" alt="">
+              </div>
+              <div class="col-lg-6 col-md-6 slide-text">
+                <p>3000+ orders, to make your surprises better</p>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 text-center mt-4">
+              <a href="https://wa.me/77073918636" class="btn btn-outline-success btn-lg my-4">Call to company</a>
+            </div>
+            <div class="col-lg-12 col-md-12 text-center mt-4">
+              <p>How can we help you?</p>
+            </div>
+            <div class="col-lg-12 col-md-12 text-center">
+              <img class="call-anim" style="width: 40px; " src="source/files/icons8-телефон-50.png" alt="">
+            </div>
+            
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+  </section>
+
+  <footer class="bg-dark text-dark pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+       
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold">About us</h5>
+                <p>
+                  We are a professional team offering the most beautiful flower arrangements and soft toys. </p>
+            </div>
+
+           
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold">Sitelinks</h5>
+                <p><a href="#" class="text-dark" style="text-decoration: none;">Main</a></p>
+                <p><a href="#" class="text-dark" style="text-decoration: none;">About us</a></p>
+                <p><a href="#" class="text-dark" style="text-decoration: none;">Prices</a></p>
+                <p><a href="#" class="text-dark" style="text-decoration: none;">Contacts</a></p>
+            </div>
+
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 font-weight-bold">Contacts</h5>
+                <p><i class="fas fa-home mr-3"></i> Astana, Kazakhstan</p>
+                <p><i class="fas fa-envelope mr-3"></i> info@floral.com</p>
+                <p><i class="fas fa-phone mr-3"></i> +7 707 391 86 36</p>
+                <p><i class="fas fa-print mr-3"></i> +7 707 391 86 36</p>
+            </div>
+
+           
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 font-weight-bold">Social network</h5>
+              <a href="https://t.me/+77073918636"><img src="source/files/icons8-телеграмма-app-48.png" alt="Telegram" style="width: 30px; margin-right: 15px;"></a>
+              <a href="https://wa.me/77073918636"><img src="source/files/icons8-whatsapp-48.png" alt="WhatsApp" style="width: 30px; margin-right: 15px;"></a>
+              <a href="https://wa.me/77073918636"><img src="source/files/icons8-телефон-50.png" alt="Phone" style="width: 30px;"></a>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+              <p>Zhussupbekova Uldana</p>
+              <p>© All Rights Reserved 2024</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="index.ls"></script>
+
+</body>
+
+</html>

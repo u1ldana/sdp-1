@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle</title>
+</head>
+<body>
+    <script>
+       
+        const container = document.createElement('div');
+        container.style.display = 'flex';
+        container.style.justifyContent = 'center';
+        container.style.alignItems = 'center';
+        container.style.height = '100vh'; 
+        document.body.appendChild(container); 
+
+        
+        const circle = document.createElement('div');
+        circle.style.width = '100px'; 
+        circle.style.height = '100px'; 
+        circle.style.borderRadius = '50%'; 
+        circle.style.backgroundColor = '#3498db'; 
+        circle.style.display = 'none';
+        container.appendChild(circle); 
+
+        
+        circle.addEventListener('click', () => {
+            circle.style.display = 'none';
+        });
+
+       
+        document.addEventListener('click', (event) => {
+            if (event.target !== circle) {
+                circle.style.display = 'block'; 
+            }
+        });
+    </script>
+</body>
+</html>
